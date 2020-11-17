@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
 
       <section className={utilStyles.headingMd}>
-        <Table striped bordered hover variant="dark">
+        <Table striped bordered hover variant="dark" responsive>
           <thead>
             <tr>
               <th>Name</th>
@@ -43,7 +43,7 @@ export default function Home() {
           </tbody>
         </Table>
       </section>
-      <div>
+      <div className="d-flex justify-content-center">
         <Button variant="secondary" size="lg">
           Add New Product
         </Button>

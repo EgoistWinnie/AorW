@@ -3,12 +3,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Head from "next/head";
 import React from "react";
 import Navi from "../components/Nav";
-
+import "../styles/Nav.css";
 export default function CMapp({ Component, pageProps }) {
   return (
     <div>
       <Navi/>
+      <div className = "index-content">
       <Component {...pageProps} />
+      </div>
       <Head>
         <title>Page Title</title>
         <link rel="stylesheet"
@@ -28,6 +30,7 @@ export default function CMapp({ Component, pageProps }) {
       crossorigin="anonymous"
     ></script>
       </Head>
+      
     </div>
   );
 }
