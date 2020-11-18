@@ -1,0 +1,94 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model customers {
+  customerNumber         Int        @id @default(autoincrement())
+  customerName           String?
+  contactLastName        String?
+  contactFirstName       String?
+  phone                  String?
+  addressLine1           String?
+  addressLine2           String?
+  city                   String?
+  state                  String?
+  postalCode             String?
+  country                String?
+  salesRepEmployeeNumber Int?
+  creditLimit            Float?
+  orders                 orders[]
+  payments               payments[]
+}
+
+model employees {
+  employeeNumber Int     @id @default(autoincrement())
+  lastName       String?
+  firstName      String?
+  extension      String?
+  email          String?
+  officeCode     Int?
+  reportsTo      Int?
+  jobTitle       String?
+}
+
+model orders {
+  orderNumber    Int            @id @default(autoincrement())
+  orderDate      String?
+  requiredDate   String?
+  shippedDate    String?
+  status         String?
+  comments       String?
+  customerNumber Int?
+  customers      customers?     @relation(fields: [customerNumber], references: [customerNumber])
+  orderdetails   orderdetails[]
+}
+
+model payments {
+  CheckID        Int        @id @default(autoincrement())
+  customerNumber Int?
+  checkNumber    String?    @unique
+  paymentDate    String?
+  amount         Float?
+  customers      customers? @relation(fields: [customerNumber], references: [customerNumber])
+}
+
+model productlines {
+  productLineID   Int        @id @default(autoincrement())
+  productLine     String?    @unique
+  textDescription String?
+  htmlDescription String?
+  // This type is currently not supported.
+  // image        ?
+  products        products[]
+}
+
+model products {
+  ProductID          Int            @id @default(autoincrement())
+  productCode        String?        @unique
+  productName        String?
+  productLine        String?
+  productScale       String?
+  productVendor      String?
+  productDescription String?
+  quantityInStock    Int?
+  buyPrice           Float?
+  MSRP               Float?
+  productlines       productlines?  @relation(fields: [productLine], references: [productLine])
+  orderdetails       orderdetails[]
+}
+
+model orderdetails {
+  DetailsID       Int       @id @default(autoincrement())
+  orderNumber     Int?
+  productCode     String?
+  quantityOrdered Int?
+  priceEach       Float?
+  orderLineNumber Int?
+  orders          orders?   @relation(fields: [orderNumber], references: [orderNumber])
+  products        products? @relation(fields: [productCode], references: [productCode])
+}
