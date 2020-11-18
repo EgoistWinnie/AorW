@@ -1,6 +1,6 @@
 import _JSXStyle from "styled-jsx/style"
 
-export default function Box  ({children,radius,marginL,marginR,marginT,marginB,borW,borC,h,w,bgColor,justify,align,display}) {
+export default function Box  ({children,radius,marginL,marginR,marginT,marginB,borW,borC,h,w,bgColor,justify,align,display,size,color,weight}) {
     return<div className = "box">
             {children}
                 <style jsx>{`
@@ -16,6 +16,10 @@ export default function Box  ({children,radius,marginL,marginR,marginT,marginB,b
                         align-items: ${align};
                         padding:auto;
                         position:relative;
+                        font-size:${size}px;
+                        color:${color};
+                        font-family:Lucida Sans Unicode", "Lucida Grande", sans-serif ;
+                        font-weight:${weight};
                     }
                 `}</style>
         </div>

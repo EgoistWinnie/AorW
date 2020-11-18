@@ -17,8 +17,13 @@ export default function Button({children,display,opacity,marginB,marginL,marginR
                     color:${color};
                     margin:${marginT == "auto" ? "auto" : `${marginT}px`} ${marginR == "auto" ? "auto" : `${marginR}px`} ${marginB == "auto" ? "auto" : `${marginB}px`} ${marginL == "auto" ? "auto" : `${marginL}px`};
                     opacity:${opacity};
-                },
+                    font-weight:bold;
+                    font-size:18px;
+                    border-color:transparent;
+
+                }
                 button:hover{
+                    border-color:${borderC};
                     background-color:${bgColorH};
                     color:${colorH};
                 }
