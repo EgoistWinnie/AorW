@@ -4,10 +4,13 @@ import Head from "next/head";
 import React from "react";
 import Navi from "../components/Nav";
 import "../styles/Nav.css";
+
+import CustomBut from "../components/CustomerButton/CustomBut"
 export default function CMapp({ Component, pageProps }) {
   return (
     <div>
       <Navi/>
+      
       <div className = "index-content">
       <Component {...pageProps} />
       </div>
@@ -30,7 +33,7 @@ export default function CMapp({ Component, pageProps }) {
       crossorigin="anonymous"
     ></script>
       </Head>
-      
+      <CustomBut/>
     </div>
   );
 }

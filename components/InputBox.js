@@ -1,11 +1,11 @@
 import _JSXStyle from "styled-jsx/style"
 import Box from "./Box"
 
-export default function InputBox  ({children,marginB,marginL,marginR,marginT,placeholder,borderFCC,borderC,borderW,bgC,radius,w,h,color,fSize,display}) {
+export default function InputBox  ({children,type,order,marginB,marginL,marginR,marginT,placeholder,borderFCC,borderC,borderW,bgC,radius,w,h,color,fSize,display}) {
     return<>
-            <input type="text" name="order" placeholder= {placeholder} />
+            <input type={type} name={order} placeholder= {placeholder} />
             <style jsx>{`
-                    input[type=text]{
+                    input[type=${type}]{
                         font-size:${fSize}px;
                         width: ${w == "100" ? `${100}%` : `${w}%`};
                         height:${h == "100" ? `${100}%` : `${h}px`};
