@@ -16,12 +16,13 @@ export default function SearchProduct(){
                 radius={0}
                 bgColor="transparent"
                 justify="center" align="center" display="flex"
-                size={16} color="black" weight="normal"
             >
                 <div className="in">
                     <form>
                         {/* <input type="text" name="order" placeholder= "search" /> */}
                         <InputBox placeholder="search"
+                            type="text"
+                            name="order"
                             fsize={16}
                             w={100} h={40}
                             marginL={10} marginB="auto" marginT="auto" marginR="auto"
@@ -43,14 +44,14 @@ export default function SearchProduct(){
                             bgColor="black" color="white" 
                             marginT="auto"  marginB="auto" marginL={10} marginR={10}
                             bgColorH="white" colorH="black"
-                            opacity={100}
+                            opacity={1}
                             display="flex"
                         >
                             <Text
-                                size={14}
-                                color="black"
+                                size={18}
+                                color="white"
                                 txtAlign="center"
-                                weight="normal"
+                                weight={600}
                             >
                                 search
                             </Text>
@@ -76,9 +77,8 @@ export default function SearchProduct(){
                         radius={8}
                         bgColor="black"
                         justify="center" align="center" display="flex"
-                        size={50} color="white" weight="normal"
                     >
-                        <Text size={100} color="white" txtAlign="bold">
+                        <Text size={50} color="white" txtAlign="bold">
                             Type
                         </Text>
                     </Box>
@@ -99,9 +99,12 @@ export default function SearchProduct(){
                                     radius={0}
                                     bgColor="transparent"
                                     justify="flex-start" align="center" display="flex"
-                                    size={30} color="black" weight="normal"
+                                    
                                 >
+                                    <Text size={30} color="black" txtAlign="normal">
                                         Name Product
+                                    </Text>
+                                       
                                 </Box>
                                 <Box //Price
                                     marginT={0}  marginB="auto" marginL={0} marginR={10}
@@ -110,9 +113,11 @@ export default function SearchProduct(){
                                     radius={0}
                                     bgColor="transparent"
                                     justify="flex-end" align="center" display="flex"
-                                    size={32} color="MediumTurquoise" weight="500"
                                 >
-                                    Price
+                                    <Text size={32} color="MediumTurquoise" txtAlign={500}>
+                                        Price
+                                    </Text>
+                                
                                 </Box>
                                 <style jsx>{`
                                         .nameprod{
@@ -129,9 +134,11 @@ export default function SearchProduct(){
                                     marginT={0}  marginB="auto" marginL={10} marginR={0} h={50} w={50} 
                                     borW={0} borC="black" radius={0} bgColor="transparent"
                                     justify="flex-start" align="center" display="flex"
-                                    size={16} color="gray" weight="normal"
                                 >
-                                    ID: 1234143141
+                                    <Text size={16} color="gray" txtAlign="normal">
+                                        ID: 1234143141
+                                    </Text>
+                                    
                                 </Box>
                                 <Box //Stock
                                     marginT={0}  marginB="auto" marginL={0} marginR={10} h={50} w={50} 
@@ -139,7 +146,9 @@ export default function SearchProduct(){
                                     justify="flex-end" align="center" display="flex"
                                     size={16} color="black" weight="normal"
                                 >
-                                    In Stock: 8
+                                    <Text size={16} color="black" txtAlign="normal">
+                                        In Stock: 8
+                                    </Text>
                                 </Box>
                                 <style jsx>{`
                                         div{
@@ -158,13 +167,16 @@ export default function SearchProduct(){
                                     justify="flex-start" align="center" display="flex"
                                     size={16} color="gray" weight="normal"
                                 >
-                                    Scale: [1:3]
+                                    <Text size={16} color="gray" txtAlign="normal">
+                                        Scale: [1:3]
+                                    </Text>
+                                    
                                 </Box>
                                 <Box //Price
                                     marginT={0}  marginB="auto" marginL={0} marginR={10} h={50} w={50} 
                                     borW={0} borC="black" radius={0} bgColor="transparent"
                                     justify="flex-end" align="center" display="flex"
-                                    size={16} color="black" weight="normal"
+                                    
                                 >
                                     <Button
                                         radius={8} borderC="FireBrick" 
@@ -178,8 +190,9 @@ export default function SearchProduct(){
                                         -
                                     </Button>
                                     <div className="zero">
-                                        0
-                                      
+                                        <Text size={20} color="gray" txtAlign="500">
+                                            0
+                                        </Text>
                                     </div>
                                     <Button
                                          radius={8} borderC="ForestGreen" 

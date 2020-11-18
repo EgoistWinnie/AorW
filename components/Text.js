@@ -5,7 +5,6 @@ export default function Text  ({children,size,color,txtAlign,weight}) {
             {children}
                 <style jsx>{`
                     div{
-                        font-family: Lucida Sans Unicode", "Lucida Grande", sans-serif;
                         font-size: ${size}px;
                         font-weight:${weight} ;
                         color: ${color};
