@@ -2,28 +2,53 @@ import Head from "next/head";
 //import Layout from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
 import { Table, Container, Button } from "react-bootstrap";
+import Link from 'next/link'
 
-import { PrismaClient } from "@prisma/client";
+import useSwr from 'swr'
+const fetcher = (url) => fetch(url).then((res) => res.json())
+// import { PrismaClient } from "@prisma/client";
 
-export async function getStaticProps() {
-  const prisma = new PrismaClient();
-  const stock = await prisma.products.findMany();
+// const prisma = new PrismaClient();
 
-  return {
-    props: {
-      stock
-    }
-  };
+// export async function getStaticProps() {
+//   const stock = await prisma.products.findMany();
+
+//   return {
+//     props: {
+//       stock
+//     }
+//   };
+// }
+
+// function onDelete(id,e) {
+//   e.preventDefault();
+//   console.log('The link was clicked.');
+// }
+
+// export async function getStaticProps() {
+//   const stock = await prisma.products.findMany();
+
+//   return {
+//     props: {
+//       stock
+//     }
+//   };
+// }
+
+async function destroy() {
+  const res = await fetch(`http://localhost:3000/api/deletestock/`, {
+    method: 'DELETE',
+  })
+  console.log('The link was clicked.')
+  const data = await res.json()
+  Router.push('/')
 }
 
-// import useSwr from 'swr'
-// const fetcher = (url) => fetch(url).then((res) => res.json())
-
 export default function Stock({stock}) {
-  // const { data, error } = useSwr('/api/hello', fetcher)
+  const { data, error } = useSwr('/api/stock', fetcher)
 
-  // if (error) return <div> Failed to load stock</div>
-  // if (!data) return <div> Loading...</div>
+  if (error) return <div> Failed to load stock</div>
+  if (!data) return <div> Loading...</div>
   return (
     //<Layout children>
     <Container>
@@ -42,12 +67,12 @@ export default function Stock({stock}) {
             </tr>
           </thead>
           <tbody>
-            {stock.map((products) => (
+            {data.map((products) => (
               <tr key={products.ProductID}>
                 <td>{products.productName}</td>
                 <td>{products.quantityInStock}</td>
-                <td>O</td>
-                <td>X</td>
+                <td><button type="button" className="btn btn-warning">Update</button></td>
+                <td><button type="button" className="btn btn-danger" onClick={destroy}>X</button></td>
               </tr>
             ))}
           </tbody>
