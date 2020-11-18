@@ -3,7 +3,27 @@ import Head from "next/head";
 import utilStyles from "../styles/utils.module.css";
 import { Table, Container, Button } from "react-bootstrap";
 
-export default function Home() {
+import { PrismaClient } from "@prisma/client";
+
+export async function getStaticProps() {
+  const prisma = new PrismaClient();
+  const stock = await prisma.products.findMany();
+
+  return {
+    props: {
+      stock
+    }
+  };
+}
+
+// import useSwr from 'swr'
+// const fetcher = (url) => fetch(url).then((res) => res.json())
+
+export default function Stock({stock}) {
+  // const { data, error } = useSwr('/api/hello', fetcher)
+
+  // if (error) return <div> Failed to load stock</div>
+  // if (!data) return <div> Loading...</div>
   return (
     //<Layout children>
     <Container>
@@ -22,24 +42,14 @@ export default function Home() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Susuki Swift</td>
-              <td>307</td>
-              <td>O</td>
-              <td>X</td>
-            </tr>
-            <tr>
-              <td>K/DA All out Akali</td>
-              <td>2045</td>
-              <td>O</td>
-              <td>X</td>
-            </tr>
-            <tr>
-              <td>When do we fall asleep, where do we go?</td>
-              <td>2045</td>
-              <td>O</td>
-              <td>X</td>
-            </tr>
+            {stock.map((products) => (
+              <tr key={products.ProductID}>
+                <td>{products.productName}</td>
+                <td>{products.quantityInStock}</td>
+                <td>O</td>
+                <td>X</td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </section>
