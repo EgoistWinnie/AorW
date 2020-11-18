@@ -72,7 +72,7 @@ export default function Stock({stock}) {
                 <td>{products.productName}</td>
                 <td>{products.quantityInStock}</td>
                 <td><button type="button" className="btn btn-warning">Update</button></td>
-                <td><button type="button" className="btn btn-danger" onClick={destroy}>X</button></td>
+                <td><button type="button" className="btn btn-danger"  onClick={destroy}>X</button></td>
               </tr>
             ))}
           </tbody>

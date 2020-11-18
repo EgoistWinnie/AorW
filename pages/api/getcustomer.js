@@ -3,10 +3,10 @@
 const prisma = new PrismaClient()
 
 // GET /api/customer/:id
-async function handleGET(req, res) {
+async function handle(req, res) {
     
-    const user = await prisma.customers.findOne({
-        where: { name: 'Alice' },
+    const user = await prisma.customers.findFirst({
+        where: { name: req.body },
       })
     res.json(post)
   }
