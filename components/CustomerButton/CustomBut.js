@@ -8,7 +8,7 @@ import {faPlusCircle} from '@fortawesome/free-solid-svg-icons'
 
 export default function customBut () {
     return( <div className="main">
-                <Link href="/">
+                <Link href="/CustomerOrder">
                     <a>
                         <button className="confirm">
                             +

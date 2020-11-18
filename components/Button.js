@@ -20,6 +20,7 @@ export default function Button({children,display,opacity,marginB,marginL,marginR
                     font-weight:bold;
                     font-size:18px;
                     border-color:transparent;
+                    padding:auto;
 
                 }
                 button:hover{
