@@ -15,7 +15,7 @@ export default function customBut () {
                         </button>
                     </a>
                 </Link >
-                <Link href="/customers">
+                <Link href="/Customers">
                     <a>
                         <button className="customer">
                             #
