@@ -10,7 +10,7 @@ export default function InputBox  ({children,type,order,marginB,marginL,marginR,
                         width: ${w == "100" ? `${100}%` : `${w}%`};
                         height:${h == "100" ? `${100}%` : `${h}px`};
                         box-sizing: border-box;
-                        margin:margin:${marginT == "auto" ? "auto" : `${marginT}px`} ${marginR == "auto" ? "auto" : `${marginR}px`} ${marginB == "auto" ? "auto" : `${marginB}px`} ${marginL == "auto" ? "auto" : `${marginL}px`};
+                        margin:${marginT == "auto" ? "auto" : `${marginT}px`} ${marginR == "auto" ? "auto" : `${marginR}px`} ${marginB == "auto" ? "auto" : `${marginB}px`} ${marginL == "auto" ? "auto" : `${marginL}px`};
                         border-radius:${radius}px;
                         color:${color};
                         border:${borderW}px solid ${borderC}; 

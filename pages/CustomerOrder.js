@@ -33,7 +33,7 @@ export default function SearchProduct(){
                     <Box //data
                         marginT="auto"  marginB="auto" marginL={10} marginR="auto" 
                         h={160} w={65} 
-                        borW={2} borC="black"
+                        borW={0.5} borC="black"
                         radius={8}
                         bgColor="white"
                         justify="flex-start" align="flex-start" display="block"
